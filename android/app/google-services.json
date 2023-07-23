@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "96729474862",
+    "project_id": "pagination-eceac",
+    "storage_bucket": "pagination-eceac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:96729474862:android:d55a42f76297368cedfcbf",
+        "android_client_info": {
+          "package_name": "com.example.paginationone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "96729474862-n13pusknf6631oba2kj5o2487ppu5aj4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzgo0xxNc0y_rnfIJe7tDAm2QC_r3_Nvo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "96729474862-n13pusknf6631oba2kj5o2487ppu5aj4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
