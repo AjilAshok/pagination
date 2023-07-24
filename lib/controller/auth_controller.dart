@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthController with ChangeNotifier {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -54,6 +55,9 @@ class AuthController with ChangeNotifier {
     try {
       final authResult = await _auth.signInWithCredential(credential);
       _user = authResult.user;
+      notifyListeners();
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setString("user_id", _user!.uid);
       notifyListeners(); // Notify listeners about the updated user state
     } catch (e) {
       // Handle sign-in with credential failure, if needed.
@@ -65,6 +69,8 @@ class AuthController with ChangeNotifier {
     try {
       await _auth.signOut();
       _user = null;
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.remove("user_id");
       notifyListeners();
     } catch (e) {
       print('Sign out failed: ${e.toString()}');

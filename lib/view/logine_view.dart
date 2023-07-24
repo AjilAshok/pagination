@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:paginationone/controller/auth_controller.dart';
 import 'package:paginationone/view/homepage.dart';
@@ -43,15 +42,26 @@ class LoginView extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   authController.signInWithOTP(_otpController.text);
-                  if (authController.user != null) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const HomePage()),
-                    );
-                  } else {
-                    // Handle login failure or show an error message.
-                    print('Sign in with OTP failed');
-                  }
+                  print(authController.user);
+                  authController.addListener(() {
+                    if (authController.user != null) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const HomePage()),
+                      );
+                    }
+                  });
+
+                  // if (authController.user != null) {
+                  //   Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(builder: (context) => const HomePage()),
+                  //   );
+                  // } else {
+                  //   // Handle login failure or show an error message.
+                  //   print('Sign in with OTP failed');
+                  // }
                 },
                 child: Text('Sign In with OTP'),
               ),
